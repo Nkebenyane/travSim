@@ -1,33 +1,39 @@
-var readline = require('readline');
-var fs = require('fs');
+const readline = require('readline');
+const fs = require("fs");
 
-process.argv.forEach(function (val, index, argv) {
-    
+let path = process.argv;
 
-    var myInterface = readline.createInterface({
-        input: fs.createReadStream(val)
-    });
+readfile(path);
 
-    var lineno = 1;
-    var output = ' ';
+function readfile(path) {
 
+    for (let i = 2; i < path.length; i++) {
 
-    if (index > 1) {
-        if (fs.lstatSync(val).isFile()) {
-            output += 'file name: ' + val;
+        if (fs.existsSync(path[i])) {
+
+            var myInterface = readline.createInterface({
+                input: fs.createReadStream(path[i])
+            });
+
+            var lineno = 1;
+            var output = ' ';
+
             myInterface.on('line', function (line) {
-                for (i = 0; i < line.length; i++) {
+                console.log('file name: ' + path[i]);
+
+                for (j = 0; j < line.length; j++) {
+
                     if (line.startsWith('var') || line.startsWith('const') || line.startsWith('let')) {
                         let ends = line.endsWith(';', line.length);
-                        if (line[i] == '=') {
-                            if (line[i - 1] == ' ' && line[i + 1] == ' ') {
+                        if (line[j] == '=') {
+                            if (line[j - 1] == ' ' && line[j + 1] == ' ') {
                                 if (!ends) {
                                     output = 'Line number ' + lineno + ' : ' + '"' + line + '"' + ' no semi colon';
                                 }
                             } else {
                                 output = 'Line number ' + lineno + ' : ' + '"' + line + '"' + ' - no space';
                                 if (!ends) {
-                                    output += ' and no semi colon';
+                                    output = output + ' and no semi colon';
                                 }
                             }
                         }
@@ -36,6 +42,10 @@ process.argv.forEach(function (val, index, argv) {
                 lineno++;
                 console.log(output);
             })
+        } else {
+            console.log('file name: ' + path[i] + ' 404, file not found! \n');
         }
     }
-});
+    return output;
+}
+
