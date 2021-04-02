@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+.hearder{
+  background-color: #050404;
+  color: #fff;
+  padding: 20px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.hearder .btn{
+  padding: 1rem;
+  right: 50%;
+  color: #fff;
+  border: solid gray 1px;
+  margin-left: 3rem;
+}
+.hearder .btn:hover{
+  background-color: #d4d1d1;
+}
+
+.container {
+  width: 100%;
+  justify-content: space-around;
+  padding: 2rem;
+  margin: 50px;
+  box-shadow: 5px 5px 8px 1px #888888;
+}
+.Todo-container{
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  padding-top: 2rem;
+  margin: 60px;
+  margin-left: 10%;
+}
+
+.Form-container{
+  width: 80%;
+  justify-content: space-around;
+  padding-top: 2rem;
+  margin: 60px;
+  margin-left: 30%;
+}
+
+.column {
+  width: 40%;
+  padding: 2rem;
+  margin: 100px 0px 20px 0px ;
+  position:relative;
+  height: 50%;
+  margin-top: 140px;
+}
+
+.header{
+  text-align: center;
+  margin-bottom: auto;
+  width: 50%;
+  position: absolute;
+  padding: 1rem;
+  border-bottom: solid gray 2px;
+}
+
+.droppable-col {
+  width: 100%;
+  border: solid rgb(211, 207, 207) 2px;
+  padding: 20px 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  margin-bottom: 10px;
+  background-color: rgb(216, 211, 211);
+  color: rgb(80, 75, 75);
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+.item.dragging {
+  background-color: rgb(186, 185, 192);
+}
+
+.Addbtn {
+  padding: 1rem;
+  background-color: rgb(28, 248, 28);
+  margin: 0px 0px 0px 10px;
+  border: none;
+  width:20%;
+  
+}
+.Addbtn:hover{
+  background-color: #fff;
+  border: solid rgb(145, 140, 140) 1px;
+}
+
+.dltbtn {
+  margin-top: 1rem;
+  background-color: transparent;
+  border: solid gray 1px;
+  color: #888888;
+  
+}
+.dltbtn:hover{
+  background-color: #fff;
+  border: solid rgb(145, 140, 140) 1px;
+}
+
+.Form-Input{
+  margin-top: 2rem;
+  width: 50%;
+  padding: 1rem;
+}
