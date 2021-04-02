@@ -3,10 +3,13 @@
 #### In this Folder you will get following:
 ![image](https://user-images.githubusercontent.com/42379845/113402841-0274df00-93a6-11eb-85ba-61cd8912a80f.png)
 
-#### both Challengs a executed from a Comand Line.
+#### both Challengs are executed from a Command Line.
 ##### - FetchMove.js - will fetch movies and show the on the command line.
+####### to execute => node FetchMove.js
 
-##### - ReadFile.js - read file, i which will be passed as an argv. you can pass as many file argv.
+##### - ReadFile.js - read file, in which will be passed as an argv. you can pass as many file argv.
+####### to execute => node FetchMove.js
+
 
 
 ## FrontEnd Folder
@@ -14,8 +17,12 @@
 
 ![image](https://user-images.githubusercontent.com/42379845/113407563-d78e8900-93ad-11eb-9a1a-da9e90a46dc3.png)
 
-#### please not that i did not add node module folder.
-#### after cloning run npm install in front-end foler 
+#### Installing and Running Application
+
+##### Remove any node_modules if found after cloning
+##### Remove the yarn.lock and or package-lock.json files if any are found after cloning
+##### run command to install dependencies: 'npm install'
+##### run command to start application: 'npm start'
 
 
 
