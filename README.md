@@ -25,7 +25,8 @@
 ##### run command to start application: 'npm start'
 
 ###  Todo
-![image](https://user-images.githubusercontent.com/42379845/113409621-f1ca6600-93b1-11eb-9bef-f32da11059da.png)
+![image](https://user-images.githubusercontent.com/42379845/113409758-4241c380-93b2-11eb-8b47-08f515b73af5.png)
+
 
 
 
