@@ -24,5 +24,9 @@
 ##### run command to install dependencies: 'npm install'
 ##### run command to start application: 'npm start'
 
+###  Todo
+![image](https://user-images.githubusercontent.com/42379845/113409621-f1ca6600-93b1-11eb-9bef-f32da11059da.png)
+
+
 
 
