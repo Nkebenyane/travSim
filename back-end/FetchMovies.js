@@ -1,16 +1,15 @@
-
-let searh = 'avengers';
+let search = 'avengers';
 const https = require('https');
 
-let url = 'https://www.omdbapi.com/?apikey=ba1f4581&s=' + searh;
+let url = 'https://www.omdbapi.com/?apikey=ba1f4581&s=' + search;
 
-https.get(url, respond => {
-    res.setEncoding("utf8");
+https.get(url, response => {
+    response.setEncoding("utf8");
     let body = "";
-    respond.on("data", data => {
+    response.on("data", data => {
         body += data;
     });
-    respond.on("end", () => {
+    response.on("end", () => {
         body = JSON.parse(body);
         console.log(body);
     });
