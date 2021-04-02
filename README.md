@@ -25,7 +25,8 @@
 ##### run command to start application: 'npm start'
 
 ###  Todo
-![image](https://user-images.githubusercontent.com/42379845/113409758-4241c380-93b2-11eb-8b47-08f515b73af5.png)
+![image](https://user-images.githubusercontent.com/42379845/113410340-7bc6fe80-93b3-11eb-8442-6472cf6d5c51.png)
+
 
 ### Validation Form
 
