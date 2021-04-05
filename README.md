@@ -5,7 +5,7 @@
 
 #### both Challengs are executed from a Command Line.
 ##### - FetchMove.js - will fetch movies and show the on the command line.
-##### --- to execute => node FetchMove.js
+##### --- to execute => node FetchMove.js "name of the move"
 
 ##### - ReadFile.js - read file, in which will be passed as an argv. you can pass as many file argv.
 ##### --- to execute eg => node FetchMove.js text.txt
