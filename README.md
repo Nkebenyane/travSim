@@ -24,7 +24,7 @@
 - run command to install dependencies : 'npm install'
 - run command to start application : 'npm start'
 
-###### **Todo**
+##### **Todo**
 - functionality
   1. add items to a todo list
   2. drag and drop items
@@ -34,7 +34,7 @@
 
 
 
-###### **Validation Form**
+##### **Validation Form**
 - functionality
   1. Submit to an endpoint
   2. validation (can not submit an empty field).
