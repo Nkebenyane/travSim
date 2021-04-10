@@ -38,6 +38,8 @@
 - functionality
   1. Submit to an endpoint
   2. validation (can not submit an empty field).
+  3. contain a form
+  4. costomized fields 
 
 ![image](https://user-images.githubusercontent.com/42379845/114284746-648ead80-9a52-11eb-9fe3-93d2b6677aaf.png)
 
