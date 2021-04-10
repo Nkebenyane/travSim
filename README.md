@@ -9,7 +9,7 @@
 - to execute => node FetchMove.js "name of the move"
 
 ##### **ReadFile.js**
-- read file, in which will be passed as an argv. you can pass as many file argv.
+- read files, in which will be passed as an arguments.
 - to execute eg => node FetchMove.js text.txt
 
 
