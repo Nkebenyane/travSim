@@ -1,10 +1,20 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap'); */
+
 * {
   box-sizing: border-box;
 }
+
+body {
+  background-color:rgb(7, 7, 7);
+  color: white;
+  font-family:"Poppins",sans-serif;
+  margin: 0;
+}
+
 .hearder{
-  background-color: #050404;
+  background-color:rgb(7, 7, 7);
   color: #fff;
-  padding: 20px;
+  padding: 30px;
   font-weight: bold;
   justify-content: center;
 }
@@ -13,44 +23,27 @@
   padding: 1rem;
   right: 50%;
   color: #fff;
-  border: solid gray 1px;
+  border: none;
   margin-left: 3rem;
+  background-color: #050404;
 }
 .hearder .btn:hover{
   background-color: #d4d1d1;
+  color: black;
 }
 
-.container {
-  width: 100%;
-  justify-content: space-around;
-  padding: 2rem;
-  margin: 50px;
-  box-shadow: 5px 5px 8px 1px #888888;
-}
 .Todo-container{
   display: flex;
-  width: 80%;
   justify-content: space-around;
-  padding-top: 2rem;
-  margin: 60px;
-  margin-left: 10%;
-}
-
-.Form-container{
-  width: 80%;
-  justify-content: space-around;
-  padding-top: 2rem;
-  margin: 60px;
-  margin-left: 30%;
 }
 
 .column {
   width: 40%;
   padding: 2rem;
-  margin: 100px 0px 20px 0px ;
+  margin-top: 12rem;
   position:relative;
   height: 50%;
-  margin-top: 140px;
+  display:grid;
 }
 
 .header{
@@ -58,58 +51,138 @@
   margin-bottom: auto;
   width: 50%;
   position: absolute;
-  padding: 1rem;
-  border-bottom: solid gray 2px;
 }
 
 .droppable-col {
   width: 100%;
-  border: solid rgb(211, 207, 207) 2px;
+  border: solid rgb(238, 235, 235) 1px;
   padding: 20px 10px 0 10px;
-  display: flex;
   flex-direction: column;
+  height: 500px;
 }
 
 .item {
   margin-bottom: 10px;
-  background-color: rgb(216, 211, 211);
-  color: rgb(80, 75, 75);
-  border: 1px solid white;
+  color: rgb(243, 231, 231);
+  border: 1px solid rgb(212, 210, 210);
   padding: 5px;
-  border-radius: 7px;
 }
 
 .item.dragging {
   background-color: rgb(186, 185, 192);
 }
 
+.title{
+  color: #fff;
+  padding: 20px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
 .Addbtn {
-  padding: 1rem;
-  background-color: rgb(28, 248, 28);
-  margin: 0px 0px 0px 10px;
+  background-color: rgb(104, 100, 100);
   border: none;
   width:20%;
-  
+  color: #fff;
+  width: 50%;
+  padding: 1rem;
+  border: none;
+  margin-top: 1rem;
 }
+
 .Addbtn:hover{
   background-color: #fff;
   border: solid rgb(145, 140, 140) 1px;
+  color: #050404;
 }
 
 .dltbtn {
   margin-top: 1rem;
   background-color: transparent;
   border: solid gray 1px;
-  color: #888888;
-  
+  color: #ffffff;
+  padding: 10px;
 }
+
 .dltbtn:hover{
   background-color: #fff;
   border: solid rgb(145, 140, 140) 1px;
+  color: #050404;
 }
 
 .Form-Input{
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 50%;
   padding: 1rem;
 }
+.submitbtn{
+  color: #fff;
+  background-color: #6b6868;
+  width: 50%;
+  padding: 1rem;
+  border: none;
+}
+
+.submitbtn:hover{
+  background-color: #fff;
+  border: solid rgb(145, 140, 140) 1px;
+  color: #050404;
+}
+
+.movie-container{
+  display: flex;
+  flex-wrap: wrap;  
+  margin-top: 240px ;
+}
+.movie{
+  color: white;
+  overflow: hidden;
+  margin: 1rem;
+  width: 190px;
+}
+
+.movie:hover{
+  box-shadow: 0px 0px 5px 5px #0d3a02;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.movie img{
+  max-width: 100%;
+}
+
+.movie-info{
+  display: flax;
+  align-items: center; 
+  justify-content: space-between;
+}
+
+input {
+  border: 2px solid;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 0.25rem;
+  min-width: 125px;
+  padding: 0.5rem;
+  transition: border-color 0.5s ease-out;
+}
+input:optional {
+  border-color: gray;
+}
+input:required:valid {
+  border-color: green;
+}
+input:invalid {
+  border-color: red;
+  box-shadow: 0px 0px 12px 1px red;
+  
+}
+input:required:focus:valid {
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+  background-size: 25px;
+}
+input:focus:invalid {
+  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% lightsalmon;
+  background-size: 25px;
+}
+

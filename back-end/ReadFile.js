@@ -7,6 +7,9 @@ readfile(path);
 
 function readfile(path) {
 
+    if(path.length < 3){
+        console.log("Pass a file as an argument");
+    }
     for (let i = 2; i < path.length; i++) {
 
         if (fs.existsSync(path[i])) {

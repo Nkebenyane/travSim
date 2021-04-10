@@ -3,7 +3,6 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import _ from 'lodash'
 import { v4 } from "uuid";
 
-//helps me to generate unique code
 const item = {
     id: v4(),
     name: "change backgroud color"
@@ -21,7 +20,7 @@ function ToDoList() {
             title: "Todo",
             items: [item, item2]
         },
-        "in-progress": {
+        "progress": {
             title: "In Progress",
             items: []
         },
@@ -67,14 +66,28 @@ function ToDoList() {
         })
         setText("")
     }
-    const deleteItem = (id) => {
-        console.log("i am deleting", id);
-    }
+  
+    const deleteItem = (title,id) => {
+        
+        if(title === 'Todo'){
+            console.log(title);
+            state.todo.items.splice(id, 1);
+            setState({todo: state.todo, done: state.done, progress: state.progress});
+        }
+        else if(title === 'In Progress'){
+            console.log(state.progress.items);
+            state.progress.items.splice(id,1);
+            setState({todo: state.todo, done: state.done, progress: state.progress});        }
+        else if(title === 'Completed'){
+            console.log(title);
+            state.done.items.splice(id, 1);
+            setState({todo: state.todo, done: state.done, progress: state.progress});        }
+    };
 
     return (
         <div className="Todo-container">
             <div className="header">
-                <h3>ToDo List </h3>
+                <h1>ToDo List </h1>
                 <input className="Form-Input" placeholder="Add To Do ..." type="text" value={text} onChange={(e) => setText(e.target.value)} />
                 <button className="Addbtn" onClick={addItem}>Add</button>
             </div>
@@ -82,7 +95,7 @@ function ToDoList() {
                 {_.map(state, (data, key) => {
                     return (
                         <div key={key} className={"column"}>
-                            <h3>{data.title}</h3>
+                            <p className="title">{data.title}</p>
                             <Droppable droppableId={key}>
                                 {(provided, snapshot) => {
                                     return (
@@ -103,8 +116,8 @@ function ToDoList() {
                                                                     {...provided.draggableProps}
                                                                     {...provided.dragHandleProps}
                                                                 >
-                                                                    {el.name}
-                                                                    <span> <button className="dltbtn" type="button" onClick={(e) => deleteItem(item.id)}>Remove</button> </span>
+                                                                    <p>{el.name}</p>
+                                                                    <span> <button className="dltbtn" type="button" onClick={(e) => deleteItem(data.title, index)}>delete</button> </span>
                                                                 </div>
                                                             )
                                                         }}

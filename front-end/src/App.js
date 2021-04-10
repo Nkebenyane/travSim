@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Todolist from './components/ToDoList';
 import ValidationForm from './components/ValidationForm';
@@ -48,9 +47,6 @@ class App extends React.Component {
           }
         </div>
       </div>
-
-
-
     );
   }
 }

@@ -1,109 +1,88 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 
-const initialState = {
-    name: "",
-    email: "",
-    password: "",
-    nameError: "",
-    emailError: "",
-    passwordError: ""
-};
+const API_KEY = "7a89d75c51896f1f762c3a7dd3491b6f";
+const FEATURED_API = "https://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY;
+const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
-export default class ValiationForm extends React.Component {
-    state = initialState;
 
-    handleChange = event => {
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-            [event.target.name]: isCheckbox
-                ? event.target.checked
-                : event.target.value
-        });
+function ValidationForm() {
+
+    const [userInput, setuserInput] = useState('')
+    const [movies, setMovies] = useState([]);
+    const [SearchError, setSearchError] = useState('');
+
+    function handleChange(e) {
+        e.preventDefault();
+        setuserInput(e.target.value);
     };
 
-    validate = () => {
-        let nameError = "";
-        let emailError = "";
-        let passwordError = "";
-
-        if (!this.state.name) {
-            nameError = "name cannot be blank";
+    const validation = (value) =>{
+        if(value === ""){
+            setSearchError("Enter Movie Name");
+        }else{
+            setSearchError("");
         }
-        if (!this.state.password) {
-            passwordError = "password can not be null";
-        }
-
-        if (!this.state.email.includes("@")) {
-            emailError = "invalid email";
-        }
-
-        if (emailError || nameError || passwordError) {
-            this.setState({ emailError, nameError, passwordError });
-            return false;
-        }
-
         return true;
-    };
-
-    
-
-    handleSubmit = event => {
-        event.preventDefault();
-        const isValid = this.validate();
-        if (isValid) {
-            console.log(this.state);
-            this.setState(initialState);
-
-            const url = `https://api.github.com/users/${this.name}/repos`;
-            fetch(url);
-            console.log("fine me ");
-        }
-       
-    };
-
-    render() {
-        return (
-            <form className="Form-container" onSubmit={this.handleSubmit}>
-                <h3>Form Validation</h3>
-                <div >
-                    <input
-                        className="Form-Input"
-                        name="name"
-                        placeholder="name"
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                    />
-                    <div style={{ fontSize: 18, color: "red" }}>
-                        {this.state.nameError}
-                    </div>
-                </div>
-                <div >
-                    <input
-                        className="Form-Input"
-                        name="email"
-                        placeholder="email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                    />
-                    <div style={{ fontSize: 18, color: "red" }}>
-                        {this.state.emailError}
-                    </div>
-                </div>
-                <div >
-                    <input
-                        className="Form-Input"
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
-                    <div style={{ fontSize: 18, color: "red" }}>
-                        {this.state.passwordError}
-                    </div>
-                </div>
-                <button className="Form-Input" type="submit">submit</button>
-            </form>
-        );
     }
+
+    useEffect(() => {
+        fetch(FEATURED_API)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setMovies(data.results);
+            });
+    }, []);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        validation(userInput);
+
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${userInput}`)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (!data.errors) {
+                    setMovies(data.results);
+                }
+            })
+        
+    };
+
+    return (
+        <div className="Todo-container" >
+            <div className="header" >
+                <h1>Search Movie</h1>
+                <form onSubmit={handleSubmit}>
+                    <input 
+                        className="Form-Input"
+                        type='text'
+                        name='Search'
+                        placeholder='i.e Avengers'
+                        onChange={handleChange}
+                        required
+                    />
+                    <p style={{ fontSize: 18, color: "red" }}>
+                        {SearchError}
+                    </p>
+                    <button className="submitbtn" type="submit">Search</button>
+                </form>
+            </div>
+
+            <div className="movie-container">
+                {
+                    movies.length > 0 && movies.map((movie) =>
+                        <div className="movie" key={movie.id}>
+                            <img src={IMG_API + movie.poster_path} alt={movie.title} />
+                            <div className="movie-info">
+                                <p>{movie.title}</p>
+                                <span>{movie.vote_average}</span>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
+        </div >
+    );
 }
+export default ValidationForm;

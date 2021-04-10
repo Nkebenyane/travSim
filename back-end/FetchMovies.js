@@ -1,10 +1,11 @@
 let search = process.argv;
 
-console.log(search);
-
 fetchmovie(search);
 
 function fetchmovie(search) {
+    if(search.length < 3){
+        console.log("Pass a Movie name as an argument");
+    }
     const https = require('https');
 
     for (let i = 2; i < search.length; i++) {
